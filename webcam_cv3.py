@@ -8,7 +8,7 @@ cascPath = "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
 log.basicConfig(filename='webcam.log',level=log.INFO)
 
-video_capture = cv2.VideoCapture(0)
+video_capture = cv2.VideoCapture('rtsp://[webcam-address]/axis-media/media.amp?videocodec=h264')
 anterior = 0
 
 while True:
@@ -44,7 +44,7 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     
-    sleep(0.5)
+    sleep(1)
 
 # Release the capture
 video_capture.release()
